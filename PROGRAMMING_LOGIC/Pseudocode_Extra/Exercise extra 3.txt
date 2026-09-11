@@ -1,0 +1,67 @@
+3.	Cree un algoritmo que le pregunte al usuario por el sexo de 6 personas, 
+ingresando 1 si es mujer o 2 si es hombre, y muestre al final el porcentaje de mujeres y hombres. 
+1.	Ejemplos: 
+1.	1, 1, 1, 2, 2, 2 → 50% mujeres y 50% hombres
+2.	1, 1, 2, 2, 2, 2 → 33.3% mujeres y 66.6% hombres
+3.	1, 1, 1, 1, 1, 2 → 84.4% mujeres y 16.6% hombres
+
+1) Inicio.
+2) Definir persona 1
+3) Definir persona 2
+4) Definir persona 3
+5) Definir persona 4
+6) Definir persona 4
+7) Definir persona 5
+8) Definir persona 6
+9) Definir X
+10) Definir Y
+11) Definir contador hombres
+12) Definir contador mujeres
+13) Mostrar "Ingrese 1 si es mujer o 2 si es hombre"
+14) Pedir  persona 1
+15) Pedir  persona 2
+16) Pedir  persona 3
+17) Pedir  persona 4
+18) Pedir  persona 4
+19) Pedir  persona 5
+20) Pedir  persona 6
+21) contador hombres = 0
+22) contador mujeres = 0
+23) 
+		i) Si persona 1 = 1 entonces:
+				a)contador mujeres + 1
+			SINO
+				a)contador hombres + 1
+				
+		ii) Si persona 2 = 1 entonces:
+				a)contador mujeres + 1
+			SINO
+				a)contador hombres + 1	
+				
+		iii) Si persona 3 = 1 entonces:
+				a)contador mujeres + 1
+			SINO
+				a)contador hombres + 1	
+				
+		iV) Si persona 4 = 1 entonces:
+				a)contador mujeres + 1
+			SINO
+				a)contador hombres + 1	
+					
+		V) Si persona 5 = 1 entonces:
+				a)contador mujeres + 1
+			SINO
+				a)contador hombres + 1
+				
+		Vi) Si persona 6 = 1 entonces:
+				a)contador mujeres + 1
+			SINO
+				a)contador hombres + 1
+				
+		Vii) FinSi
+24) X =(contador hombres / (contador mujeres + contador hombres)) * 100
+		Y =(contador mujeres / (contador mujeres + contador hombres)) * 100
+25) Mostrar "El porcentaje de hombres es de:"
+26) Mostrar " X "		
+27) Mostrar "El porcentaje de mujeres es de:"
+28) Mostrar " Y "
