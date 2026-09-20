@@ -1,37 +1,34 @@
+import actions
+import data
+def show_menu():
 
-def add_student():
-    name = input("Enter the student's name: ")
-    section = input("Enter the student's section: ")
-    spanish_grade = input("Enter the student's Spanish grade: ")
-    english_grade = input("Enter the student's English grade: ")
-    social_studies_grade = input("Enter the student's Social Studies grade: ")
-    science_grade = input("Enter the student's Science grade: ")
+    while True:
+        print("Welcome to the Student Grades Management System")
+        print("Please select an option:")
+        print("1. Add a new student")
+        print("2. View all students")
+        print("3. View failed students")
+        print("4. View top 3 students")
+        print("5. Delete a student")
+        print("6. Exit")
+        choice = input("Enter your choice (1-6): ")
+        if choice == "1":
+            student = actions.add_student()
+            data.students.append(student)
+            print("Student added successfully")
+            print(data.students)
 
-
-def view_students():
-        with open("data.txt", "r", encoding="utf-8") as file:
-            students_grades= file.readlines()
-        print("Student Grades:")
-
-
-def view_failed_students():
-        with open("data.txt", "r", encoding="utf-8") as file:
-            students = file.readlines()
-print("Failed Students:")
-
-
-def view_top_students():
-        with open("data.txt", "r", encoding="utf-8") as file:
-            students = file.readlines()
-        print("Top 3 Students:")
-
-def delete_student():
-    delete_student = input("Enter the name of the student to delete: ")
-    confirmation = input(f"Are you sure you want to delete '{delete_student}'? (y/n): ")
-        if confirmation.lower() == "y":  
+        elif choice == "2":
+            actions.view_students(data.students)
+        elif choice == "3":
+            actions.view_failed_students(data.students)
+        elif choice == "4":
+            actions.view_top_3_students()
+        elif choice == "5":
+            actions.delete_student()
+            print("Student deleted successfully.")
+        elif choice == "6":
+            print("Exiting the program. Goodbye!")
+            break
         else:
-            print("Deletion canceled.")
-        with open("actions.py ", "r", encoding="utf-8") as file:
-            students = file.readlines()
-        delete_student()
-    print(f"Student '{delete_student}' has been deleted.")
+            print("Invalid choice. Please try again.")
