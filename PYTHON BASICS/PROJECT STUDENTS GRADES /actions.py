@@ -103,13 +103,12 @@ def view_failed_students(students):
 def view_top_3_students(students):
         student_averages = []
         for student in students:
-            name, section, spanish_grade, english_grade, social_studies_grade, science_grade = student.strip().split(
-                ","
-            )
-            spanish_grade = float(spanish_grade)
-            english_grade = float(english_grade)
-            social_studies_grade = float(social_studies_grade)
-            science_grade = float(science_grade)
+            name = student["name"]
+            section = student["section"]
+            spanish_grade = student["spanish_grade"]
+            english_grade = student["english_grade"]
+            social_studies_grade = student["social_studies_grade"]
+            science_grade = student["science_grade"]
 
             average = (
                 spanish_grade + english_grade + social_studies_grade + science_grade
@@ -126,18 +125,60 @@ def view_top_3_students(students):
             student_averages, key=lambda x: x["average"], reverse=True
         )[:3]
 
+        if not top_students:
+            print("No students registered.")
+        else:
+            print("top 3 students:")
+
+            for student in top_students:
+                print(f"Name:{student['name']}")
+                print(f"section:{student['section']}")
+                print(f"Average:{student['average']:.2f}")
+                print("---------------------------------")
+
         return top_students
+
+
 def delete_student(students):
 
-    name = input("Enter the name of the student to delete: ")
-    name = name.strip() 
+    name = input("Enter the name of the student to delete: ").strip().lower()
+    Section = input("Enter the student section:").strip().upper()
+
     for student in students:
-        if student["name"].lower() == name.lower():
-            print("Student found!!")
+        if (
+            student["name"].lower() == name
+            and student["section"] == Section
+        ):
+            print("student found!")
+            
             confirmation = input("Are you sure you want to delete? Enter Y for yes or N to cancel: ").strip().upper()
-            if confirmation == Y:
-                Y = students.remove(student)
+
+            if confirmation == "Y":
+                students.remove(student)
+                print("Student deleted successfully!!")
             else:
-                print("Cancel")
-        else:
-            print("The student you search for is not found")
+                print("Deletion cancelled")
+
+            break
+    else:
+        print("student not found")
+
+
+
+def view_general_average(students):
+    if not students:
+        print("No students registered")
+        return
+
+    total_average = 0
+    for student in students:
+        spanish_grade = student["spanish_grade"]
+        english_grade = student["english_grade"]
+        social_studies_grade = student["social_studies_grade"]
+        science_grade = student["science_grade"]
+        student_average = (spanish_grade + english_grade + social_studies_grade + science_grade)/4
+        total_average = total_average + student_average
+    general_average = total_average / len(students)
+    print(" The average score of the class is:", general_average)
+    
+
