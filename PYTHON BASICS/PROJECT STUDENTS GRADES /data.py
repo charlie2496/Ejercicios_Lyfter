@@ -1,39 +1,6 @@
 import csv
 
-students = [
-    {
-        "name": "Carlos",
-        "section": "10A",
-        "spanish_grade": 90.0,
-        "english_grade": 85.0,
-        "social_studies_grade": 95.0,
-        "science_grade": 90.0
-    },
-    {
-        "name": "Maria",
-        "section": "11B",
-        "spanish_grade": 70.0,
-        "english_grade": 80.0,
-        "social_studies_grade": 75.0,
-        "science_grade": 75.0
-    },
-    {
-        "name": "Pedro",
-        "section": "10B",
-        "spanish_grade": 95.0,
-        "english_grade": 95.0,
-        "social_studies_grade": 100.0,
-        "science_grade": 90.0
-    },
-    {
-        "name": "Ana",
-        "section": "11A",
-        "spanish_grade": 80.0,
-        "english_grade": 85.0,
-        "social_studies_grade": 80.0,
-        "science_grade": 95.0
-    }
-]
+students = []
 
 
 def export_students(students):

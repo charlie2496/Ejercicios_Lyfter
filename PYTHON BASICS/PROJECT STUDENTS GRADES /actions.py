@@ -92,13 +92,14 @@ def view_failed_students(students):
                 or student["english_grade"] < 60
                 or student["social_studies_grade"] < 60
                 or student["science_grade"] < 60
-                ):
+            ):
                 failed_students.append(student)
-                if failed_students:
-                    for student in failed_students:
-                        print(student)
-                else:
-                    print("No failed students found.")
+
+        if failed_students:
+            for student in failed_students:
+                print(student)
+        else:
+            print("No failed students found.")
 
 def view_top_3_students(students):
         student_averages = []
