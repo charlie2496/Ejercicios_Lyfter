@@ -1,7 +1,5 @@
 import csv
 
-students = []
-
 
 def export_students(students):
     with open("students.csv","w", newline="", encoding="utf-8") as file:
@@ -19,7 +17,7 @@ def export_students(students):
 
     print("students exported successfully")
 
-def import_students():
+def import_students(students):
     try:
         with open("students.csv", "r", encoding="utf-8") as file:
             reader =csv.DictReader(file)

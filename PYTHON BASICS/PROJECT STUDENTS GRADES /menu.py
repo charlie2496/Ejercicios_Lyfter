@@ -1,6 +1,6 @@
 import actions
 import data
-def show_menu():
+def show_menu(students):
 
     while True:
         print("Welcome to the Student Grades Management System")
@@ -17,27 +17,27 @@ def show_menu():
         choice = input("Enter your choice (1-9): ")
         if choice == "1":
             student = actions.add_student()
-            data.students.append(student)
+            students.append(student)
             print("Student added successfully")
-            print(data.students)
 
         elif choice == "2":
-            actions.view_students(data.students)
+            actions.view_students(students)
         elif choice == "3":
-            actions.view_failed_students(data.students)
+            actions.view_failed_students(students)
         elif choice == "4":
-            actions.view_top_3_students(data.students)
+            actions.view_top_3_students(students)
         elif choice == "5":
-            actions.delete_student(data.students)
+            actions.delete_student(students)
         elif choice == "6":
             print("Exiting the program. Goodbye!")
             break
         elif choice == "7":
-            data.export_students(data.students)
+            data.export_students(students)
         elif choice == "8":
-                actions.view_general_average(data.students)
+                actions.view_general_average(students)
         elif choice == "9":
-                data.import_students()
+                data.import_students(students)
         else:
             print("Invalid choice. Please try again.")
+
 

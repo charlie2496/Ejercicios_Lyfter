@@ -97,7 +97,17 @@ def view_failed_students(students):
 
         if failed_students:
             for student in failed_students:
-                print(student)
+                print(f'Name: {student["name"]}')
+                print(f'Section: {student["section"]}')
+                print("Failed Subjects:")
+                if student["spanish_grade"] < 60:
+                    print(f' - Spanish: {student["spanish_grade"]}')
+                if student["english_grade"] < 60:
+                    print(f' - English: {student["english_grade"]}')
+                if student["social_studies_grade"] < 60:
+                    print(f' - Social Studies: {student["social_studies_grade"]}')
+                if student["science_grade"] < 60:
+                    print(f' - Science: {student["science_grade"]}')
         else:
             print("No failed students found.")
 

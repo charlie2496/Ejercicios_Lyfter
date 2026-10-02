@@ -1,2 +1,3 @@
 import menu
-menu.show_menu()
+students = []
+menu.show_menu(students)
