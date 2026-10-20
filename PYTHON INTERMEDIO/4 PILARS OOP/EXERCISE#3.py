@@ -21,3 +21,5 @@ class AmphibiousVehicle(Car, Boat):
     def drive_and_sail(self):
         self.drive()
         self.sail()
+vehicle=AmphibiousVehicle()
+vehicle.drive_and_sail()
