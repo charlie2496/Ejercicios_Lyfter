@@ -1,19 +1,14 @@
+
 def decorator_name(func):
-    def average_score(parameters):
-        spanish_score = int(input("enter Spanish score: "))
-        english_score = int(input("enter English score: "))
-
-        func(parameters) 
-        average_score = (spanish_score + english_score) / 2
-        print("The average score is:", average_score)
-        return average_score
-
-    return average_score
-
+    def wrapper(*args):
+        print("Parameters:", args)
+        result = func(*args)
+        print("Return:", result)
+        return result
+    return wrapper
 
 @decorator_name
-def show_student_info(student):
-    print(f"Student: {student}")
+def average_score(spanish, english):
+    return (spanish + english) / 2
 
-
-show_student_info("Carlos Andres")
+average_score(90, 80)

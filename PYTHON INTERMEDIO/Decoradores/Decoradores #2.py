@@ -1,9 +1,9 @@
+
 def numbers_only(func):
         def wrapper(*args):
-                if len(args) != 5:
-                        raise ValueError("Enter exactly 5 numbers")
                 for number in args:
-                        int(number)
+                        if type(number) not in (int, float):
+                                raise TypeError("Only numbers allowed")
                 return func(*args)
         return wrapper
 
@@ -13,9 +13,11 @@ def lottery(a, b, c, d, e):
 
 try:
         numbers = input("Enter 5 numbers separated by commas: ")
-        numbers = numbers.split(",")
+        numbers = [int(x) for x in numbers.split(",")]
+
+        if len(numbers) != 5:
+                raise ValueError("Enter exactly 5 numbers")
+
         print(lottery(*numbers))
-except ValueError:
-        print("Error: Enter exactly 5 valid numbers")
-
-
+except (ValueError, TypeError) as error:
+        print("Error:", error)

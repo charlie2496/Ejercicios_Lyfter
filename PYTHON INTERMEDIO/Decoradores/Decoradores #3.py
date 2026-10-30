@@ -24,11 +24,6 @@ def adult_only(func):
 def show_user(user):
     print("Access granted, use it wisely! Age:", user.age)
 
-
-birthday = input("Enter your birth date (dd/mm/yyyy): ")
-user = User(birthday)
-show_user(user)
-
 try:
     birthday = input("Enter your birth date (dd/mm/yyyy): ")
     user = User(birthday)
