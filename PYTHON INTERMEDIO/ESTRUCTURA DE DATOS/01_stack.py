@@ -10,10 +10,13 @@ class Node:
 class Stack:
     head: Node
 
-    def __init__(self, head):
+    def __init__(self, head=None):
         self.head = head
 
     def print_structure(self):
+        if self.head is None:
+            print("Stack is empty")
+            return
         current_node = self.head
 
         while current_node is not None:
@@ -25,46 +28,49 @@ class Stack:
         self.head = new_node
 
     def pop(self):
-        if self.head:
-            self.head = self.head.next
+        if self.head is None:
+            return None
+        removed_node = self.head
+        self.head = self.head.next
+        removed_node.next = None
+        return removed_node
+if __name__ == "__main__":
 
+    first_node = Node("Hola")
+    my_stack = Stack(first_node)
 
-first_node = Node("Hola")
-my_stack = Stack(first_node)
-# my_stack.print_structure()
+    second_node = Node("world")
+    my_stack.push(second_node)
 
-second_node = Node("Mundo")
-my_stack.push(second_node)
+    third_node = Node("third")
+    my_stack.push(third_node)
 
-third_node = Node("third")
-my_stack.push(third_node)
+    forth = Node("forth")
+    my_stack.push(forth)
 
-forth = Node("forth")
-my_stack.push(forth)
+    my_stack.print_structure()
 
-my_stack.print_structure()
+    print("POP")
 
-print("POP")
+    my_stack.pop()
+    my_stack.print_structure()
 
-my_stack.pop()
-my_stack.print_structure()
+    print("POP")
 
-print("POP")
+    my_stack.pop()
+    my_stack.print_structure()
 
-my_stack.pop()
-my_stack.print_structure()
+    print("POP")
 
-print("POP")
+    my_stack.pop()
+    my_stack.print_structure()
 
-my_stack.pop()
-my_stack.print_structure()
+    print("POP")
 
-print("POP")
+    my_stack.pop()
+    my_stack.print_structure()
 
-my_stack.pop()
-my_stack.print_structure()
+    print("POP")
 
-print("POP")
-
-my_stack.pop()
-my_stack.print_structure()
+    my_stack.pop()
+    my_stack.print_structure()
